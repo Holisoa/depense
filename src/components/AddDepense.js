@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
 const AddDepense = (props) => {
    
@@ -40,6 +41,9 @@ const AddDepense = (props) => {
                         <button type="submit">Submit</button>
             
             </form>
+        <Link to="/"> 
+        <button>go back to the list</button>
+        </Link>
             
         </div>
     )

@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import DepenseCard from './DepenseCard'
 
 const DepenseList = (props) => {
-    console.log(props);
+   
     const deleteAmountHandler = (id) => {
         props.getAmountId(id);
     }
@@ -12,17 +13,26 @@ const DepenseList = (props) => {
 
     const renderDepenseList = props.depenses.map((depense) => {
         return(
-            <DepenseCard 
+            <div>
+                <DepenseCard 
                 depense={depense}
                 key={depense.id}
                 clickHandler = {deleteAmountHandler}
                 updateHandler={updateHandler}
-            />
+                />
+            </div>
+            
         )
     })
 
     return (
-       <div className="ui celled list">{renderDepenseList}</div>
+        <div>
+            <Link to="/add">
+                <button>add new expense</button>
+            </Link>
+            <div className="ui celled list">{renderDepenseList}</div>
+        </div>
+        
     )
 }
 
